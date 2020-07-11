@@ -1,0 +1,16 @@
+PODS:
+  - OpenGLLibs (0.0.1)
+
+DEPENDENCIES:
+  - OpenGLLibs (from `./../OpenGLLibs`)
+
+EXTERNAL SOURCES:
+  OpenGLLibs:
+    :path: "./../OpenGLLibs"
+
+SPEC CHECKSUMS:
+  OpenGLLibs: eb27584af8ef0a4e8363d1c011a85140e56140cd
+
+PODFILE CHECKSUM: b16dd4c3e26c224490fe67a1ecd849c0249345f0
+
+COCOAPODS: 1.9.2
