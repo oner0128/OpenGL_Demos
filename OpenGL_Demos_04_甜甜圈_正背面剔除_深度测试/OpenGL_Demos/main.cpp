@@ -54,6 +54,13 @@ void RenderScene()
     }
     
     
+    if (iDepth) {
+        glEnable(GL_DEPTH_TEST);
+    } else
+    {
+        glDisable(GL_DEPTH_TEST);
+    }
+    
     //2.把摄像机矩阵压入模型矩阵中
     modelViewMatix.PushMatrix(viewFrame);
     
@@ -157,8 +164,21 @@ void ProcessMenu(int value)
         case 1:
             iDepth = !iDepth;
             break;
+            
         case 2:
             iCull = !iCull;
+            
+        case 3:
+            glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+            break;
+            
+        case 4:
+            glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+            break;
+            
+        case 5:
+            glPolygonMode(GL_FRONT_AND_BACK, GL_POINT);
+            break;
             
         default:
             break;
@@ -180,13 +200,13 @@ int main(int argc, char* argv[])
     glutDisplayFunc(RenderScene);
     
     //添加右击菜单栏
-    glutCreateMenu(ProcessMenu);
+    glutCreateMenu(ProcessMenu);//创建菜单
     glutAddMenuEntry("Toggle depth test",1);
     glutAddMenuEntry("Toggle cull backface",2);
     glutAddMenuEntry("Set Fill Mode", 3);
     glutAddMenuEntry("Set Line Mode", 4);
     glutAddMenuEntry("Set Point Mode", 5);
-    glutAttachMenu(GLUT_RIGHT_BUTTON);
+    glutAttachMenu(GLUT_RIGHT_BUTTON);//绑定在鼠标右键
     
     GLenum err = glewInit();
     if (GLEW_OK != err) {
