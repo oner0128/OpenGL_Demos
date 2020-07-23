@@ -315,43 +315,41 @@ void RenderScene(void)
     modelViewMatrix.PushMatrix(objectFrame);//此时的objectFrame指代观察者
 //    固定管线渲染点/线/线段/线环
     shaderManager.UseStockShader(GLT_SHADER_FLAT, transformPipeline.GetModelViewProjectionMatrix(), vBlack);
-//    switch (nStep) {
-//        case 0:
-//            //设置点的大小
-//            glPointSize(4.0f);
-//            pointBatch.Draw();
-//            glPointSize(1.0f);
-//            break;
-//        case 1:
-//            //设置线的宽度
-//            glLineWidth(2.0f);
-//            lineBatch.Draw();
-//            glLineWidth(1.0f);
-//            break;
-//        case 2:
-//            //设置线的宽度
-//            glLineWidth(2.0f);
-//            lineStripBatch.Draw();
-//            glLineWidth(1.0f);
-//            break;
-//        case 3:
-//            //设置线的宽度
-//            glLineWidth(2.0f);
-//            lineLoopBatch.Draw();
-//            glLineWidth(1.0f);
-//            break;
-//        case 4:
-//            DrawWireFrameBatch(&triangleBatch);
-//            break;
-//        case 5:
-//            DrawWireFrameBatch(&triangleFanBatch);
-//            break;
-//        case 6:
-//            DrawWireFrameBatch(&triangleStripBatch);
-//            break;
-//    }
-    
-    DrawWireFrameBatch(&triangleStripBatch);
+    switch (nStep) {
+        case 0:
+            //设置点的大小
+            glPointSize(4.0f);
+            pointBatch.Draw();
+            glPointSize(1.0f);
+            break;
+        case 1:
+            //设置线的宽度
+            glLineWidth(2.0f);
+            lineBatch.Draw();
+            glLineWidth(1.0f);
+            break;
+        case 2:
+            //设置线的宽度
+            glLineWidth(2.0f);
+            lineStripBatch.Draw();
+            glLineWidth(1.0f);
+            break;
+        case 3:
+            //设置线的宽度
+            glLineWidth(2.0f);
+            lineLoopBatch.Draw();
+            glLineWidth(1.0f);
+            break;
+        case 4:
+            DrawWireFrameBatch(&triangleBatch);
+            break;
+        case 5:
+            DrawWireFrameBatch(&triangleFanBatch);
+            break;
+        case 6:
+            DrawWireFrameBatch(&triangleStripBatch);
+            break;
+    }
     
     
     //2、修改图形属性
